@@ -26,7 +26,7 @@ STOCK = str(STOCK).upper()
 PERIOD = int(PERIOD)
 
 # Download the stock data
-data = yf.download(STOCK)
+data = yf.download(STOCK, progress=False)
 
 # Use the 'Close' price and drop missing values
 data = data['Close']
