@@ -16,10 +16,10 @@ from prettytable import PrettyTable
 from colorama import Fore
 
 # Define the stock symbol
-STOCK = 'BBCA.JK'
+STOCK = input("Enter the stock symbol: ")
 
 # Define the period for seasonal decomposition
-PERIOD = 252
+PERIOD = input("Enter the period for seasonal decomposition: ")
 
 # Convert inputs to uppercase and integer
 STOCK = str(STOCK).upper()
