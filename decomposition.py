@@ -18,8 +18,8 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 # Define the stock symbol
 STOCK = input("Enter the stock symbol: ")
 
-# Define the period for seasonal decomposition
-PERIOD = input("Enter the period for seasonal decomposition: ")
+# Define the period for seasonal decomposition (in days)
+PERIOD = input("Enter the period for seasonal decomposition (in days): ")
 
 # Convert inputs to uppercase and integer
 STOCK = str(STOCK).upper()
