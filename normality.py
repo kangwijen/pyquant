@@ -18,17 +18,14 @@ from colorama import Fore
 # Define the stock symbol
 STOCK = input("Enter the stock symbol: ")
 
-# Convert inputs to uppercase and integer
+# Convert inputs to uppercase
 STOCK = str(STOCK).upper()
 
 # Download the stock data
 data = yf.download(STOCK, progress=False)
 
-# Use the 'Close' price and drop missing values
-data = data['Close']
-
-# Fill missing values using the previous value
-data = data.ffill().bfill()
+# Use the 'Close' price and fill missing values
+data = data['Close'].ffill().bfill()
 
 # Calculate the log returns
 log_returns = np.log(data / data.shift(1))

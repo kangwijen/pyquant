@@ -28,11 +28,8 @@ PERIOD = int(PERIOD)
 # Download the stock data
 data = yf.download(STOCK, progress=False)
 
-# Use the 'Close' price and drop missing values
-data = data['Close']
-
-# Fill missing values using the previous value
-data = data.ffill().bfill()
+# Use the 'Close' price and fill missing values
+data = data['Close'].ffill().bfill()
 
 # Perform seasonal decomposition
 result = seasonal_decompose(data, model='multiplicative', period=PERIOD)
