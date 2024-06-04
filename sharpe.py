@@ -9,7 +9,6 @@ Returns: None
 Example: python sharpe.py
 """
 
-
 import yfinance as yf
 import numpy as np
 import pandas as pd
@@ -46,7 +45,10 @@ log_returns = np.log(data / data.shift(1)).dropna()
 log_returns = log_returns - RISK_FREE_RATE / PERIOD
 
 # Calculate the rolling Sharpe ratio
-rolling_sharpe = log_returns.rolling(window=WINDOW).mean() / log_returns.rolling(window=WINDOW).std()
+rolling_sharpe = log_returns.rolling(WINDOW).mean() / log_returns.rolling(WINDOW).std()
+
+# Fill missing values
+rolling_sharpe = rolling_sharpe.ffill().bfill()
 
 # Calculate the Q1 and Q3 quantiles
 q1 = rolling_sharpe.quantile(0.25)

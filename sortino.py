@@ -9,7 +9,6 @@ Returns: None
 Example: python sortino.py
 """
 
-
 import yfinance as yf
 import numpy as np
 import pandas as pd
