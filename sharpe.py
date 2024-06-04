@@ -6,7 +6,7 @@ Author: kangwijen
 
 Parameters: None
 Returns: None
-Example: python normality.py
+Example: python sharpe.py
 """
 
 
